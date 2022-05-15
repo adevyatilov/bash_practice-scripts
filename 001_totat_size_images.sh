@@ -10,7 +10,7 @@ images_raw_size=$(docker image ls --format {{.Size}})
 images_size_MB=$(echo ${images_raw_size} | grep -oP "[0-9\.]+(?=MB)")
 
 total_size_images_MB=0
-for image_size_MB in ${images_size_MB}
+for image_size_MB in ${images_size_MB[@]}
 do
   total_size_images_MB=$(echo "${total_size_images_MB} + ${image_size_MB}" | bc)
 done
