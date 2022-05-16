@@ -25,7 +25,7 @@ echo "Databases backup finished"
 # Изменяем права директории BACKUP_DATA_DIR
 chmod 700 $BACKUP_DATA_DIR
 
-# Удаляем архивы, которые старее DAYS_TO_STORE дней
+# Удаляем архивы, которые созданы DAYS_TO_STORE дней назад
 find $BACKUP_DATA_DIR -type d -mtime $DAYS_TO_STORE | xargs -r rm -r
 
 echo "[$(date +"%d.%m.%Y %H:%M:%S")]: finished"
